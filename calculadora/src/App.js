@@ -54,11 +54,11 @@ class App extends Component {
   calculateResult(){
     const {first, second, operator} = this.state;
     switch (operator) {
-      case '+':
+      case 'btnPlus':
         return (parseInt(first, 10) + parseInt(second, 10)).toString();
-      case '-':
+      case 'btnLess':
         return (parseInt(first, 10) - parseInt(second, 10)).toString();
-      case '*':
+      case 'btnMultiply':
         return (parseInt(first, 10) * parseInt(second, 10)).toString();
       default :
         return (parseInt(first, 10) / parseInt(second, 10)).toString();
@@ -90,21 +90,21 @@ class App extends Component {
           <div>
             {this.numbers.map(
               element => (
-                <button style={this.boxStyle} key={element.toString()} id={element} onClick={e => this.handleNumberClick(e)}>{element}</button>
+                <button style={this.boxStyle} key={element.toString()} id={'btn'+element} onClick={e => this.handleNumberClick(e)}>{element}</button>
               )
             )}
           </div>
           <div>
-            <button style={this.boxStyle} id="+" value="+" onClick={e => this.handleOperatorClick(e)}>+</button>
-            <button style={this.boxStyle} id="*" value="*" onClick={e => this.handleOperatorClick(e)}>*</button>
-            <button style={this.boxStyle} id="-" value="-" onClick={e => this.handleOperatorClick(e)}>-</button>
+            <button style={this.boxStyle} id="btnPlus" value="+" onClick={e => this.handleOperatorClick(e)}>+</button>
+            <button style={this.boxStyle} id="btnMultiply" value="*" onClick={e => this.handleOperatorClick(e)}>*</button>
+            <button style={this.boxStyle} id="btnLess" value="-" onClick={e => this.handleOperatorClick(e)}>-</button>
           </div>
         </div>
         <div style={this.section}>
-          <button style={this.boxStyle} id="9" onClick={e => this.handleNumberClick(e)}>9</button>
+          <button style={this.boxStyle} id="btn9" onClick={e => this.handleNumberClick(e)}>9</button>
           <button style={this.boxStyle} onClick={() => this.handleClearClick()}>C</button>
-          <button style={this.boxStyle} onClick={() => this.handleEqualClick()}>=</button>
-          <button style={this.boxStyle} id="/" onClick={e => this.handleOperatorClick(e)}>/</button>
+          <button style={this.boxStyle} id="equal" onClick={() => this.handleEqualClick()}>=</button>
+          <button style={this.boxStyle} id="btnDivide" onClick={e => this.handleOperatorClick(e)}>/</button>
         </div>
       </div>
     );
