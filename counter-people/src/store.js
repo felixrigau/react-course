@@ -2,6 +2,8 @@ import {createStore} from 'redux'
 
 export const addPerson = () => ({type:"ADD_PERSON"})
 export const decreasePerson = () => ({type:"DECREASE_PERSON"});
+export const cleanRoom = () => ({type:"CLEAR_ROOM"})
+export const fullRoom = () => ({type:"FULL_ROOM"});
 
 
 export const personReducer = (state, action) => {
@@ -11,6 +13,12 @@ export const personReducer = (state, action) => {
     if(action.type === "DECREASE_PERSON"){
         return state > 0 ? state - 1: state;
     }   
+    if(action.type === "CLEAR_ROOM"){
+        return state = 0;
+    }
+    if(action.type === "FULL_ROOM"){
+        return state = 10;
+    }  
     return state;
 }
 

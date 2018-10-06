@@ -1,4 +1,4 @@
-import { addPerson, decreasePerson, personReducer } from './store'
+import { addPerson, decreasePerson, personReducer, cleanRoom, fullRoom } from './store'
 
 describe("Actions suite", () => {
     it("should create a valid ADD_PERSON action", () => {
@@ -17,6 +17,14 @@ describe("Reducers suite", () => {
 
     it("should decrease the state with DECREASE_PERSON action", () => {
         expect(personReducer(8, decreasePerson())).toBe(7);
+    })
+
+    it("should clear the state with CLEAR_ROOM action", () => {
+        expect(personReducer(4, cleanRoom())).toBe(0);
+    })
+
+    it("should set 10 to state with FULL_ROOM action", () => {
+        expect(personReducer(3, fullRoom())).toBe(10);
     })
 
     it("should return the same state when DECREASE_PERSON action is executed and the state is equal to 0", () => {
