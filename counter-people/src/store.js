@@ -30,6 +30,7 @@ export const personReducer = (state, action) => {
     return state;
 }
 
+//Middleware
 const logger = store => next => action => {
     console.log("------------------");
     console.log(store.getState());
@@ -38,6 +39,7 @@ const logger = store => next => action => {
     console.log(store.getState());
 }
 
+//Middleware
 const delayActions = store => next => action => {
     if (action.delay) {
         setTimeout(()=>next(action), action.delay)

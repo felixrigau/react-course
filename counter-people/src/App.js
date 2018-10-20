@@ -20,6 +20,7 @@ export class App extends Component {
           <input type ="button" value="-" onClick={() => decreasePerson()}></input>
           <input type ="button" value="Clear" onClick={() => cleanRoom()}></input>
           <input type ="button" value="Full" onClick={() => fullRoom()}></input>
+
         </div>
         <WarningComponent/>
       </div>
@@ -36,4 +37,4 @@ const mapDispatchToProps = ({
   fullRoom
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export const AppConnected =  connect(mapStateToProps, mapDispatchToProps)(App);
