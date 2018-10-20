@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {addPerson, decreasePerson, cleanRoom, fullRoom} from './store'
+import {addPerson, decreasePerson, cleanRoom, fullRoom, followersPerson} from './store'
 import {connect} from 'react-redux'
 import WarningComponent from './WarningComponent'
 
@@ -20,7 +20,7 @@ export class App extends Component {
           <input type ="button" value="-" onClick={() => decreasePerson()}></input>
           <input type ="button" value="Clear" onClick={() => cleanRoom()}></input>
           <input type ="button" value="Full" onClick={() => fullRoom()}></input>
-
+          <input type ="button" value="Thunk" onClick={() => followersPerson()}></input>
         </div>
         <WarningComponent/>
       </div>
